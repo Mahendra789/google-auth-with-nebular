@@ -1,0 +1,40 @@
+<nb-layout>
+  <nb-layout-column>
+    <ng-container *ngIf="socialAuthServive.authState | async as socialUser">
+      <nb-card status="success">
+        <nb-card-header>User details!</nb-card-header>
+        <nb-card-body>
+          <div class="user-image" [style.backgroundImage]="'url('+ socialUser.photoUrl +')'">
+          </div>
+          <div class="user-details">
+            <div class="user-details-card">
+              <h4> First Name
+              </h4>
+              <span>{{socialUser.firstName}}</span>
+            </div>
+            <div class="user-details-card">
+              <h4> Last Name
+              </h4>
+              <span>{{socialUser.lastName}}</span>
+            </div>
+            <div class="user-details-card">
+              <h4> Email Id
+              </h4>
+              <span>{{socialUser.email}}</span>
+            </div>
+            <div class="user-details-card">
+              <h4> User Id
+              </h4>
+              <span>{{socialUser.id}}</span>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+      <nb-card status="danger">
+        <nb-card-body>
+          <button (click)="logout()" class="btn" nbButton status="danger">Logout</button>
+        </nb-card-body>
+      </nb-card>
+    </ng-container>
+  </nb-layout-column>
+</nb-layout>
